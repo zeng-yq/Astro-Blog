@@ -159,28 +159,7 @@
               </div>
               <div class="space-y-4">
                 <div class="flex flex-wrap gap-x-4 gap-y-2">
-                  <a class="link intent-neutral variant-animated" target="_blank" title="GitHub" href="https://github.com/ccbikai/RSS.Beauty">GitHub</a>
-                  <a class="link intent-neutral variant-animated" target="_blank" title="X/Twitter" href="https://404.li/kai">X/Twitter</a>
-                </div>
-                <div class="text-title flex gap-1 overflow-hidden font-medium">
-                  Made with ❤️‍🔥 By
-                  <div class="flex items-start justify-center gap-2 text-center font-semibold sm:gap-1">
-                    <div class="block">
-                      <a href="https://html.zone" target="_blank" title="HTML.ZONE" class="block pb-2">HTML.ZONE</a>
-                      <div class="-mt-5 grow overflow-hidden">
-                        <svg class="w-24" aria-hidden="true" height="22" viewBox="0 0 283 22" fill="none"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path d="M1.24715 19.3744C72.4051 10.3594 228.122 -4.71194 281.724 7.12332" stroke="url(#paint0_linear_pl)" stroke-width="4"/>
-                          <defs>
-                            <linearGradient id="paint0_linear_pl" x1="282" y1="5.49999" x2="40" y2="13" gradientUnits="userSpaceOnUse">
-                              <stop stop-color="#facc15"/>
-                              <stop offset="1" stop-color="#a855f7"/>
-                            </linearGradient>
-                          </defs>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
+                  <a class="link intent-neutral variant-animated" target="_blank" title="GitHub" href="https://github.com/zeng-yq">GitHub</a>
                 </div>
               </div>
             </div>
