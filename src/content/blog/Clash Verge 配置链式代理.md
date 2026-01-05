@@ -19,13 +19,13 @@ top: false
 
 本文使用的是 Cliproxy 购买的长效静态 ISP IP，你也可以使用其他家的，后面的操作步骤都一样。购买完成后需要把 IP、用户名、密码记录下来：
 
-![alt text](/assets/images/article-clash-verge-chain-proxy/image.png)
+![Cliproxy 购买信息](/assets/images/article-clash-verge-chain-proxy/cliproxy-purchase-info.png)
 
 ## 配置 Clash Verge
 
 双击“全局扩展脚本”，
 
-![alt text](/assets/images/article-clash-verge-chain-proxy/image1.png)
+![双击全局扩展脚本](/assets/images/article-clash-verge-chain-proxy/clash-verge-script-extension.png)
 
 把下面的内容粘贴进去，把相关信息替换成你购买的 IP 信息：
 
@@ -74,21 +74,21 @@ function main(config) {
 
 如下图所示，然后点击保存就配置完成了：
 
-![alt text](/assets/images/article-clash-verge-chain-proxy/image2.png)
+![脚本配置保存完成](/assets/images/article-clash-verge-chain-proxy/script-config-saved.png)
 
 ## 使用方式
 
 此时切到“代理”界面，可以看到多了 “all” 和 “静态 IP” 这两个组：
 
-![alt text](/assets/images/article-clash-verge-chain-proxy/image3.png)
+![代理组创建完成](/assets/images/article-clash-verge-chain-proxy/proxy-groups-created.png)
 
 使用我们刚刚配置的静态 IP 进行中转：
-![alt text](/assets/images/article-clash-verge-chain-proxy/image6.png)
+![使用静态 IP 进行中转](/assets/images/article-clash-verge-chain-proxy/use-static-ip-proxy.png)
 
 采用 https://ippure.com/ 检测下是否配置成功（也可采用 https://ping0.cc/）：
 
-![alt text](/assets/images/article-clash-verge-chain-proxy/image7.png)
+![IP 检测结果显示静态 IP](/assets/images/article-clash-verge-chain-proxy/ip-detection-result.png)
 
 如果不想此时不想使用我们刚刚配置的静态 IP 进行中转，采用直接使用使用机场的方式：
 
-![alt text](/assets/images/article-clash-verge-chain-proxy/image4.png)
+![直接使用机场节点](/assets/images/article-clash-verge-chain-proxy/use-airport-direct.png)
