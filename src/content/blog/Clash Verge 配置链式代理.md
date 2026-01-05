@@ -4,7 +4,7 @@ categories: 网络
 tags: ["网络", "创业", "跨境"]
 id: "clash-verge-chain-proxy"
 date: 2026-01-05 18:18:18
-cover: "/assets/images/2026-plan/walk-to-2026.webp"
+cover: "/assets/images/article-clash-verge-chain-proxy/clash-verge-chain-proxy.webp"
 recommend: true
 top: false
 ---
