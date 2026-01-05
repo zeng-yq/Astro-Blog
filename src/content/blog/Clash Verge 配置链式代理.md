@@ -9,7 +9,7 @@ recommend: true
 top: false
 ---
 
-:::note
+:::note{type="success"}
 简单几个步骤即可实现 Clash Verge 的链式代理配置。通过 JavaScript 脚本创建多层代理转发，实现更灵活的网络代理方案。适用于需要固定 IP 地址进行跨境电商、独立开发等场景。
 :::
 
