@@ -96,17 +96,17 @@ function main(config) {
   // 3. 重置代理分组（只保留两个核心分组）
   config["proxy-groups"] = [
     {
-      name: groupAirportName,
-      type: "select",
-      proxies: allProxies,
-    },
-    {
       name: groupFinalName,
       type: "select",
       proxies: [
-        groupAirportName, // 选项 1: 机场直连
-        staticProxyConfig.name, // 选项 2: 经过静态 IP
+        staticProxyConfig.name, // 选项 1: 经过静态 IP
+        groupAirportName, // 选项 2: 机场直连
       ],
+    },
+    {
+      name: groupAirportName,
+      type: "select",
+      proxies: allProxies,
     },
   ];
 
