@@ -56,6 +56,7 @@ export default {
     // { text: '圈子', link: '/friends', icon: 'Nav_rss' },
     // { text: '动态', link: '/talking', icon: 'Nav_talking' },
     { text: '归档', link: '/archives', icon: 'Nav_archives' },
+    { text: 'Prompts', link: '/prompts', icon: 'Nav_prompts' },
     // { text: '留言', link: '/message', icon: 'Nav_message' },
     { text: '关于', link: '/about', icon: 'Nav_about' },
     // { text: 'API', link: 'https://api.vvhan.com/', target: true, icon: 'Nav_link' },

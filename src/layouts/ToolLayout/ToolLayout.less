@@ -356,6 +356,104 @@
         &.message-main {
           display: none;
         }
+
+        // Prompts 页面样式
+        &.prompts-main {
+          padding: 1rem;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+          background-color: var(--vh-white-color);
+
+          &>.prompt-card {
+            position: relative;
+            box-sizing: border-box;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            width: 100%;
+            min-height: 12rem;
+            border-radius: 0.88rem;
+            background-color: var(--vh-font-6);
+            transition: all 0.18s ease-in-out;
+            overflow: hidden;
+
+            &:hover {
+              transform: translateY(-4px);
+              box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+              background-color: var(--vh-white-color);
+
+              &>.prompt-cover {
+                transform: scale(1.05);
+              }
+            }
+
+            &>.prompt-cover {
+              flex-shrink: 0;
+              width: 100%;
+              height: 6rem;
+              object-fit: cover;
+              border-radius: 0.5rem;
+              transition: transform 0.3s ease;
+            }
+
+            &>.prompt-info {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              gap: 0.5rem;
+              overflow: hidden;
+
+              &>.prompt-category {
+                display: inline-block;
+                align-self: flex-start;
+                padding: 0.2rem 0.6rem;
+                font-size: 0.75rem;
+                color: var(--vh-main-color);
+                background-color: rgba(1, 196, 182, 0.1);
+                border-radius: 0.4rem;
+              }
+
+              &>.prompt-title {
+                margin: 0;
+                font-size: 1.1rem;
+                font-weight: 700;
+                line-height: 1.4;
+                color: var(--vh-font-color);
+              }
+
+              &>.prompt-content {
+                flex: 1;
+                margin: 0;
+                font-size: 0.875rem;
+                color: var(--vh-font-56);
+                line-height: 1.6;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                overflow: hidden;
+              }
+
+              &>.prompt-link {
+                display: inline-block;
+                align-self: flex-start;
+                padding: 0.3rem 0.8rem;
+                font-size: 0.8rem;
+                color: var(--vh-main-color);
+                background-color: rgba(1, 196, 182, 0.1);
+                border-radius: 0.4rem;
+                text-decoration: none;
+                transition: all 0.2s ease-in-out;
+
+                &:hover {
+                  background-color: var(--vh-main-color);
+                  color: var(--vh-white-color);
+                }
+              }
+            }
+          }
+        }
       }
 
     }
@@ -369,6 +467,11 @@
 
           // 友情链接
           &.links-main {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          // Prompts
+          &.prompts-main {
             grid-template-columns: repeat(2, 1fr);
           }
 
@@ -394,6 +497,10 @@
       &>main {
         &.main {
           &.links-main {
+            grid-template-columns: repeat(1, 1fr);
+          }
+
+          &.prompts-main {
             grid-template-columns: repeat(1, 1fr);
           }
         }

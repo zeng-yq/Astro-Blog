@@ -27,6 +27,8 @@ import initLinks from "@/scripts/Links";
 import initFriends from "@/scripts/Friends";
 // 动态说说初始化
 import initTalking from "@/scripts/Talking";
+// Prompts 初始化
+import initPrompts from "@/scripts/Prompts";
 // 文章评论初始化
 import { checkComment, commentInit } from "@/scripts/Comment";
 // 移动端侧边栏初始化
@@ -71,6 +73,8 @@ const indexInit = async (only: boolean = true) => {
   initFriends();
   // 动态说说初始化
   initTalking();
+  // Prompts 初始化
+  initPrompts();
   // Google 广告
   GoogleAdInit();
   // 谷歌 SEO 推送
