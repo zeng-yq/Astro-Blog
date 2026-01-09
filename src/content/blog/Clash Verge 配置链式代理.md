@@ -4,7 +4,7 @@ categories: 网络
 tags: ["网络", "创业", "跨境"]
 id: "clash-verge-chain-proxy"
 date: 2026-01-05 18:18:18
-cover: "/assets/images/article-clash-verge-chain-proxy/clash-verge-chain-proxy.webp"
+cover: "/assets/images/articles/clash-verge-chain-proxy/clash-verge-chain-proxy.webp"
 recommend: true
 top: false
 ---
@@ -26,7 +26,7 @@ top: false
 - 用户名
 - 密码
 
-![Cliproxy 购买信息](/assets/images/article-clash-verge-chain-proxy/cliproxy-purchase-info.png)
+![Cliproxy 购买信息](/assets/images/articles/clash-verge-chain-proxy/cliproxy-purchase-info.png)
 
 ## 二、理解链式代理原理
 
@@ -54,7 +54,7 @@ top: false
 
 在 Clash Verge 「订阅」界面中，双击「全局扩展脚本」选项：
 
-![双击全局扩展脚本](/assets/images/article-clash-verge-chain-proxy/clash-verge-script-extension.png)
+![双击全局扩展脚本](/assets/images/articles/clash-verge-chain-proxy/clash-verge-script-extension.png)
 
 ### 2. 添加链式代理脚本
 
@@ -227,7 +227,7 @@ function main(config) {
 
 点击保存按钮完成配置：
 
-![脚本配置保存完成](/assets/images/article-clash-verge-chain-proxy/script-config-saved.png)
+![脚本配置保存完成](/assets/images/articles/clash-verge-chain-proxy/script-config-saved.png)
 
 ## 四、验证配置效果
 
@@ -238,7 +238,7 @@ function main(config) {
 - **✈️ 机场中转池**：包含你订阅中的所有机场节点
 - **🚀 最终出口选择**：包含「✈️ 机场中转池」和「🔒 静态 IP (出口)」两个选项
 
-![代理组创建完成](/assets/images/article-clash-verge-chain-proxy/proxy-groups-created.png)
+![代理组创建完成](/assets/images/articles/clash-verge-chain-proxy/proxy-groups-created.png)
 
 ### 2. 使用静态 IP 出口
 
@@ -248,7 +248,7 @@ function main(config) {
 本地计算机 → 机场节点 → 静态 IP 节点 → 目标网站
 ```
 
-![使用静态 IP 进行中转](/assets/images/article-clash-verge-chain-proxy/use-static-ip-proxy.png)
+![使用静态 IP 进行中转](/assets/images/articles/clash-verge-chain-proxy/use-static-ip-proxy.png)
 
 ### 3. 验证 IP 地址
 
@@ -256,17 +256,17 @@ function main(config) {
 
 如果显示的是你购买的静态 IP 地址，说明配置成功！
 
-![IP 检测结果显示静态 IP](/assets/images/article-clash-verge-chain-proxy/ip-detection-result.png)
+![IP 检测结果显示静态 IP](/assets/images/articles/clash-verge-chain-proxy/ip-detection-result.png)
 
 你也可以在 Clash Verge 的运行日志中查看详细信息，确认配置正常工作：
 
-![Clash Verge 运行日志](/assets/images/article-clash-verge-chain-proxy/clash-verge-run-log.png)
+![Clash Verge 运行日志](/assets/images/articles/clash-verge-chain-proxy/clash-verge-run-log.png)
 
 ### 4. 切换回机场直连模式
 
 如需直接使用机场节点（不经过静态 IP），在「🚀 最终出口选择」中选择「✈️ 机场中转池」，然后在「✈️ 机场中转池」中选择具体的节点即可：
 
-![直接使用机场节点](/assets/images/article-clash-verge-chain-proxy/use-airport-direct.png)
+![直接使用机场节点](/assets/images/articles/clash-verge-chain-proxy/use-airport-direct.png)
 
 ## 五、使用场景建议
 
