@@ -1,14 +1,14 @@
 export default {
   // 网站标题
-  Title: 'Zengyq 的博客',
+  Title: '如此肤浅的博客',
   // 网站地址
   Site: 'https://www.zengyq.cn',
   // 网站副标题
   Subtitle: '但行好事，莫问前程.',
   // 网站描述
-  Description: 'Zengyq 的博客，聚焦 AI 落地，分享自动化工作流、写作。同时，博客也分享作者的创业日常生活。',
+  Description: '如此肤浅的博客，聚焦 AI 落地，分享自动化工作流、写作。同时，博客也分享作者的创业日常生活。',
   // 网站作者
-  Author: 'Zengyq',
+  Author: '如此肤浅',
   // 作者头像
   Avatar: '/assets/images/logo.webp',
   // 网站座右铭
