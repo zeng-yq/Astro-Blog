@@ -46,7 +46,7 @@ export default {
     // 全局圆角
     "--vh-main-radius": "0px",
     // 主体内容宽度
-    "--vh-main-max-width": "1458px",
+    "--vh-main-max-width": "1350px",
 
     // === 像素风格变量 ===
     // 像素边框
