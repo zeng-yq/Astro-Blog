@@ -383,18 +383,123 @@
               transform: translateY(-4px);
               box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
               background-color: var(--vh-white-color);
-
-              &>.prompt-cover {
-                transform: scale(1.05);
-              }
             }
 
-            &>.prompt-cover {
+            &>.prompt-carousel {
+              position: relative;
               flex-shrink: 0;
               width: 100%;
               height: 6rem;
-              object-fit: cover;
               border-radius: 0.5rem;
+              overflow: hidden;
+              background-color: var(--vh-font-6);
+
+              // 图片轨道
+              &>.carousel-track {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.3s ease-in-out;
+
+                &>.carousel-slide {
+                  flex-shrink: 0;
+                  width: 100%;
+                  height: 100%;
+
+                  &>.prompt-cover {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  }
+                }
+              }
+
+              // 左右切换按钮
+              &>.carousel-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2rem;
+                height: 2rem;
+                border: none;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                cursor: pointer;
+                opacity: 0;
+                transition: all 0.2s ease-in-out;
+                z-index: 2;
+                user-select: none;
+
+                &>svg {
+                  width: 1.2rem;
+                  height: 1.2rem;
+                  color: var(--vh-font-color);
+                }
+
+                &:hover {
+                  background-color: var(--vh-white-color);
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                }
+
+                &:active {
+                  transform: translateY(-50%) scale(0.95);
+                }
+
+                &.carousel-btn-prev {
+                  left: 0.5rem;
+                }
+
+                &.carousel-btn-next {
+                  right: 0.5rem;
+                }
+              }
+
+              // 鼠标悬停时显示按钮
+              &:hover>&>.carousel-btn {
+                opacity: 1;
+              }
+
+              // 圆点指示器
+              &>.carousel-indicators {
+                position: absolute;
+                bottom: 0.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 0.4rem;
+                z-index: 2;
+                user-select: none;
+
+                &>.carousel-indicator {
+                  width: 0.4rem;
+                  height: 0.4rem;
+                  border: none;
+                  border-radius: 50%;
+                  background-color: rgba(255, 255, 255, 0.5);
+                  cursor: pointer;
+                  transition: all 0.2s ease-in-out;
+                  padding: 0;
+
+                  &.active {
+                    background-color: var(--vh-white-color);
+                    width: 1rem;
+                    border-radius: 0.2rem;
+                  }
+
+                  &:hover {
+                    background-color: rgba(255, 255, 255, 0.8);
+                  }
+                }
+              }
+            }
+
+            // hover 效果调整 - 轮播容器整体缩放
+            &:hover>&>.prompt-carousel {
+              transform: scale(1.02);
               transition: transform 0.3s ease;
             }
 
@@ -433,23 +538,6 @@
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 3;
                 overflow: hidden;
-              }
-
-              &>.prompt-link {
-                display: inline-block;
-                align-self: flex-start;
-                padding: 0.3rem 0.8rem;
-                font-size: 0.8rem;
-                color: var(--vh-main-color);
-                background-color: rgba(1, 196, 182, 0.1);
-                border-radius: 0.4rem;
-                text-decoration: none;
-                transition: all 0.2s ease-in-out;
-
-                &:hover {
-                  background-color: var(--vh-main-color);
-                  color: var(--vh-white-color);
-                }
               }
             }
           }
@@ -502,6 +590,43 @@
 
           &.prompts-main {
             grid-template-columns: repeat(1, 1fr);
+
+            // 移动端轮播样式调整
+            &>.prompt-card {
+              &>.prompt-carousel {
+                &>.carousel-btn {
+                  width: 1.8rem;
+                  height: 1.8rem;
+                  opacity: 1; // 移动端始终显示按钮
+
+                  &>svg {
+                    width: 1rem;
+                    height: 1rem;
+                  }
+
+                  &.carousel-btn-prev {
+                    left: 0.3rem;
+                  }
+
+                  &.carousel-btn-next {
+                    right: 0.3rem;
+                  }
+                }
+
+                &>.carousel-indicators {
+                  gap: 0.3rem;
+
+                  &>.carousel-indicator {
+                    width: 0.35rem;
+                    height: 0.35rem;
+
+                    &.active {
+                      width: 0.8rem;
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

@@ -10,5 +10,5 @@ comment: false
 :::note{type="info"}
 💡 这里收集了优质的 AI Prompt，涵盖编程、写作、学习等多个领域。
 
-📌 点击卡片即可查看完整 Prompt 内容和来源。
+📌 点击卡片即可查看完整 Prompt 内容。
 :::
