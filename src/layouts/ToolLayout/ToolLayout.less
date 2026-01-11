@@ -380,7 +380,6 @@
             overflow: hidden;
 
             &:hover {
-              transform: translateY(-4px);
               box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
               background-color: var(--vh-white-color);
             }
@@ -427,10 +426,9 @@
                 justify-content: center;
                 width: 2.8rem;
                 height: 2.8rem;
-                border: 2px solid var(--vh-white-color);
+                border: none;
                 border-radius: 50%;
-                background-color: var(--vh-main-color);
-                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+                background-color: transparent;
                 cursor: pointer;
                 opacity: 0;
                 transition: all 0.2s ease-in-out;
@@ -440,14 +438,16 @@
                 &>svg {
                   width: 1.4rem;
                   height: 1.4rem;
-                  color: var(--vh-white-color);
-                  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+                  color: var(--vh-main-color);
                 }
 
                 &:hover {
-                  background-color: var(--vh-main-color);
-                  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+                  background-color: rgba(1, 196, 182, 0.1);
                   transform: translateY(-50%) scale(1.1);
+
+                  &>svg {
+                    color: var(--vh-main-color);
+                  }
                 }
 
                 &:active {
@@ -464,9 +464,7 @@
               }
 
               // 鼠标悬停时显示按钮
-              &:hover>&>.carousel-btn {
-                opacity: 1;
-              }
+              // 注意：这里需要在父级 prompt-card 悬停时触发
 
               // 圆点指示器
               &>.carousel-indicators {
@@ -484,19 +482,19 @@
                   height: 0.4rem;
                   border: none;
                   border-radius: 50%;
-                  background-color: rgba(255, 255, 255, 0.5);
+                  background-color: rgba(1, 196, 182, 0.3);
                   cursor: pointer;
                   transition: all 0.2s ease-in-out;
                   padding: 0;
 
                   &.active {
-                    background-color: var(--vh-white-color);
+                    background-color: var(--vh-main-color);
                     width: 1rem;
                     border-radius: 0.2rem;
                   }
 
                   &:hover {
-                    background-color: rgba(255, 255, 255, 0.8);
+                    background-color: rgba(1, 196, 182, 0.6);
                   }
                 }
               }
@@ -504,8 +502,12 @@
 
             // hover 效果调整 - 轮播容器整体缩放
             &:hover>&>.prompt-carousel {
-              transform: scale(1.02);
-              transition: transform 0.3s ease;
+              transform: scale(1);
+            }
+
+            // 卡片悬停时显示轮播按钮
+            &:hover>.prompt-carousel>.carousel-btn {
+              opacity: 1;
             }
 
             &>.prompt-info {
@@ -525,12 +527,64 @@
                 border-radius: 0.4rem;
               }
 
-              &>.prompt-title {
+              &>.prompt-title-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.5rem;
+              }
+
+              &>.prompt-title-row>.prompt-title {
+                flex: 1;
                 margin: 0;
                 font-size: 1.1rem;
                 font-weight: 700;
                 line-height: 1.4;
                 color: var(--vh-font-color);
+              }
+
+              &>.prompt-title-row>.prompt-copy-btn {
+                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2rem;
+                height: 2rem;
+                border: none;
+                border-radius: 0.4rem;
+                background-color: rgba(1, 196, 182, 0.1);
+                color: var(--vh-main-color);
+                cursor: pointer;
+                transition: all 0.18s ease-in-out;
+                user-select: none;
+
+                &>svg {
+                  width: 1rem;
+                  height: 1rem;
+                  transition: transform 0.18s ease-in-out;
+                }
+
+                &:hover {
+                  background-color: var(--vh-main-color);
+                  color: var(--vh-white-color);
+
+                  &>svg {
+                    transform: scale(1.1);
+                  }
+                }
+
+                &:active {
+                  transform: scale(0.95);
+                }
+
+                &.copied {
+                  background-color: var(--vh-success);
+                  color: var(--vh-white-color);
+
+                  &>svg {
+                    animation: copy-success 0.3s ease-in-out;
+                  }
+                }
               }
 
               &>.prompt-content {
@@ -663,3 +717,15 @@
       }
     }
   }
+// 复制成功动画
+@keyframes copy-success {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -179,7 +179,15 @@ const PromptsInit = async (data: any) => {
 
           <section class="prompt-info">
             <span class="prompt-category">${item.category}</span>
-            <h3 class="prompt-title">${item.title}</h3>
+            <div class="prompt-title-row">
+              <h3 class="prompt-title">${item.title}</h3>
+              <button class="prompt-copy-btn" data-content="${encodeURIComponent(item.content)}" aria-label="复制内容">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
             <p class="prompt-content vh-ellipsis line-3">${item.content}</p>
           </section>
         </div>
@@ -197,9 +205,36 @@ const PromptsInit = async (data: any) => {
       carouselInstances.push(new PromptCarousel(carousel as HTMLElement));
     });
 
+    // 复制功能
+    const copyButtons = promptsDOM.querySelectorAll('.prompt-copy-btn');
+    const boundCopyHandlers: Array<() => void> = [];
+
+    copyButtons.forEach((btn) => {
+      const handler = async () => {
+        const content = decodeURIComponent((btn as HTMLElement).dataset.content || '');
+        try {
+          await navigator.clipboard.writeText(content);
+          vh.Toast('复制成功');
+          // 添加复制成功动画
+          btn.classList.add('copied');
+          setTimeout(() => btn.classList.remove('copied'), 1500);
+        } catch {
+          vh.Toast('复制失败');
+        }
+      };
+      boundCopyHandlers.push(handler);
+      btn.addEventListener('click', handler);
+    });
+
     // 返回清理函数
     return () => {
       carouselInstances.forEach(instance => instance.destroy());
+      copyButtons.forEach((btn, index) => {
+        const handler = boundCopyHandlers[index];
+        if (handler) {
+          btn.removeEventListener('click', handler);
+        }
+      });
     };
   } catch {
     vh.Toast('获取 Prompt 数据失败');
