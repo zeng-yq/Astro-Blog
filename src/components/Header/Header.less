@@ -5,9 +5,12 @@ header.vh-header {
   box-sizing: border-box;
   width: 100vw;
   height: 66px;
-  backdrop-filter: blur(2rem);
-  background-color: rgba(255, 255, 255, 0.36);
-  box-shadow: var(--vh-box-shadow);
+  // 移除模糊效果，改为纯像素风格
+  // backdrop-filter: blur(2rem);
+  background-color: rgba(255, 255, 255, 0.95);
+  // 使用像素风格边框和阴影
+  border-bottom: var(--vh-pixel-border-width) solid var(--vh-pixel-border-color);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
   transition: background-color 0.18s ease-in-out;
   z-index: 9;
 
@@ -30,19 +33,34 @@ header.vh-header {
       width: max-content;
       height: max-content;
       color: var(--vh-font-color);
+      // 添加像素边框
+      border: 2px solid transparent;
+      border-radius: 0;
+      transition: all 0.18s ease-in-out;
+
+      // 禁用全局 .vh-hover 的蓝色背景效果
+      &::before {
+        display: none !important;
+      }
 
       &:hover {
+        border-color: var(--vh-main-color);
+        box-shadow: var(--vh-pixel-box-shadow-sm);
+        background-color: var(--vh-main-color);
+
         &>span {
           color: var(--vh-white-color);
         }
       }
 
       &>span {
-        font-size: 0.98rem;
-        font-weight: 600;
+        font-size: 0.75rem;
+        font-family: var(--vh-pixel-font-title), 'HarmonyOS Sans SC', sans-serif;
+        font-weight: 400;
         padding-top: 0.188rem;
-        transition: all 0.1s;
-        font-weight: 700;
+        letter-spacing: 0.5px;
+        // 确保中英文字体大小一致
+        font-size-adjust: 0.5;
       }
 
       &>svg {
@@ -62,19 +80,46 @@ header.vh-header {
 
       &>.nav-link {
         box-sizing: border-box;
-        padding: 0.288rem 0.36rem;
+        padding: 0.288rem 0.5rem;
         display: flex;
         align-items: center;
         gap: 0.28rem;
         line-height: inherit;
         height: max-content;
-        font-size: 0.98rem;
-        font-weight: 600;
+        font-size: 0.75rem;
+        font-family: var(--vh-pixel-font-title), 'HarmonyOS Sans SC', sans-serif;
+        font-weight: 400;
+        letter-spacing: 0.5px;
         user-select: none;
+        border: 2px solid transparent;
+        border-radius: 0;
+        transition: all 0.18s ease-in-out;
+        // 确保中英文字体大小一致
+        font-size-adjust: 0.5;
+
+        // 禁用全局 .vh-hover 的蓝色背景效果
+        &::before {
+          display: none !important;
+        }
 
         &.search-btn,
         &.menu-btn {
           cursor: pointer;
+        }
+
+        // 悬停效果
+        &:hover {
+          border-color: var(--vh-main-color);
+          box-shadow: var(--vh-pixel-box-shadow-sm);
+          transform: translate(-1px, -1px);
+          background-color: var(--vh-main-color);
+          color: var(--vh-white-color);
+        }
+
+        &.active {
+          border-color: var(--vh-main-color);
+          background-color: var(--vh-main-color);
+          color: var(--vh-white-color);
         }
 
         &.menu-btn {

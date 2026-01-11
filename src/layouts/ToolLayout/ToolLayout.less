@@ -357,7 +357,7 @@
           display: none;
         }
 
-        // Prompts 页面样式
+        // Prompts 页面样式 - 像素风格
         &.prompts-main {
           padding: 1rem;
           display: grid;
@@ -374,13 +374,29 @@
             gap: 0.8rem;
             width: 100%;
             min-height: 32rem;
-            border-radius: 0.88rem;
+            // 像素风格边框和阴影
+            border: var(--vh-pixel-border-width) solid var(--vh-pixel-border-color);
+            border-radius: 0;
             background-color: var(--vh-font-6);
+            box-shadow: var(--vh-pixel-box-shadow);
             transition: all 0.18s ease-in-out;
             overflow: hidden;
 
+            // 厚实下边框
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: var(--vh-pixel-border-thick);
+              background-color: var(--vh-main-color);
+              z-index: 1;
+            }
+
             &:hover {
-              box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+              transform: translate(-2px, -2px);
+              box-shadow: var(--vh-pixel-box-shadow-lg);
               background-color: var(--vh-white-color);
             }
 
@@ -392,7 +408,8 @@
               margin-top: -1rem;
               margin-left: -1rem;
               margin-right: -1rem;
-              border-radius: 0.5rem 0.5rem 0 0;
+              border-radius: 0;
+              border-bottom: var(--vh-pixel-border-width) solid var(--vh-pixel-border-color);
               overflow: hidden;
               background-color: var(--vh-font-6);
 
@@ -416,7 +433,7 @@
                 }
               }
 
-              // 左右切换按钮
+              // 左右切换按钮 - 像素风格
               &>.carousel-btn {
                 position: absolute;
                 top: 50%;
@@ -426,9 +443,10 @@
                 justify-content: center;
                 width: 2.8rem;
                 height: 2.8rem;
-                border: none;
-                border-radius: 50%;
-                background-color: transparent;
+                border: 2px solid var(--vh-pixel-border-color);
+                border-radius: 0;
+                background-color: #fff;
+                box-shadow: var(--vh-pixel-box-shadow-sm);
                 cursor: pointer;
                 opacity: 0;
                 transition: all 0.2s ease-in-out;
@@ -442,16 +460,18 @@
                 }
 
                 &:hover {
-                  background-color: rgba(1, 196, 182, 0.1);
-                  transform: translateY(-50%) scale(1.1);
+                  background-color: var(--vh-main-color);
+                  transform: translateY(-50%) translate(-1px, -1px);
+                  box-shadow: var(--vh-pixel-box-shadow);
 
                   &>svg {
-                    color: var(--vh-main-color);
+                    color: var(--vh-white-color);
                   }
                 }
 
                 &:active {
-                  transform: translateY(-50%) scale(0.95);
+                  transform: translateY(-50%) translate(0, 0);
+                  box-shadow: var(--vh-pixel-box-shadow-sm);
                 }
 
                 &.carousel-btn-prev {
@@ -463,10 +483,7 @@
                 }
               }
 
-              // 鼠标悬停时显示按钮
-              // 注意：这里需要在父级 prompt-card 悬停时触发
-
-              // 圆点指示器
+              // 圆点指示器 - 像素方块风格
               &>.carousel-indicators {
                 position: absolute;
                 bottom: 0.5rem;
@@ -478,10 +495,10 @@
                 user-select: none;
 
                 &>.carousel-indicator {
-                  width: 0.4rem;
-                  height: 0.4rem;
-                  border: none;
-                  border-radius: 50%;
+                  width: 8px;
+                  height: 8px;
+                  border: 2px solid var(--vh-pixel-border-color);
+                  border-radius: 0;
                   background-color: rgba(1, 196, 182, 0.3);
                   cursor: pointer;
                   transition: all 0.2s ease-in-out;
@@ -489,8 +506,7 @@
 
                   &.active {
                     background-color: var(--vh-main-color);
-                    width: 1rem;
-                    border-radius: 0.2rem;
+                    width: 24px;
                   }
 
                   &:hover {
@@ -521,10 +537,12 @@
                 display: inline-block;
                 align-self: flex-start;
                 padding: 0.2rem 0.6rem;
-                font-size: 0.75rem;
+                font-size: 0.65rem;
+                font-family: var(--vh-pixel-font-title);
                 color: var(--vh-main-color);
-                background-color: rgba(1, 196, 182, 0.1);
-                border-radius: 0.4rem;
+                border: 2px solid var(--vh-main-color);
+                border-radius: 0;
+                background-color: transparent;
               }
 
               &>.prompt-title-row {
@@ -537,8 +555,9 @@
               &>.prompt-title-row>.prompt-title {
                 flex: 1;
                 margin: 0;
-                font-size: 1.1rem;
-                font-weight: 700;
+                font-size: 0.95rem;
+                font-family: var(--vh-pixel-font-title);
+                font-weight: 400;
                 line-height: 1.4;
                 color: var(--vh-font-color);
               }
@@ -550,9 +569,9 @@
                 justify-content: center;
                 width: 2rem;
                 height: 2rem;
-                border: none;
-                border-radius: 0.4rem;
-                background-color: rgba(1, 196, 182, 0.1);
+                border: 2px solid var(--vh-main-color);
+                border-radius: 0;
+                background-color: transparent;
                 color: var(--vh-main-color);
                 cursor: pointer;
                 transition: all 0.18s ease-in-out;
@@ -567,6 +586,8 @@
                 &:hover {
                   background-color: var(--vh-main-color);
                   color: var(--vh-white-color);
+                  transform: translate(-1px, -1px);
+                  box-shadow: var(--vh-pixel-box-shadow-sm);
 
                   &>svg {
                     transform: scale(1.1);
@@ -574,12 +595,14 @@
                 }
 
                 &:active {
-                  transform: scale(0.95);
+                  transform: translate(0, 0);
+                  box-shadow: none;
                 }
 
                 &.copied {
                   background-color: var(--vh-success);
                   color: var(--vh-white-color);
+                  border-color: var(--vh-success);
 
                   &>svg {
                     animation: copy-success 0.3s ease-in-out;
@@ -591,33 +614,36 @@
                 flex: 1;
                 margin: 0;
                 padding: 0.6rem;
-                font-size: 0.875rem;
+                font-size: 0.85rem;
+                font-family: var(--vh-pixel-font-body);
                 color: var(--vh-font-56);
-                line-height: 1.6;
+                line-height: 1.4;
                 max-height: 8rem;
                 overflow-y: scroll;
                 overflow-x: hidden;
-                border: 1px solid var(--vh-font-16);
-                border-radius: 0.4rem;
+                border: 2px solid var(--vh-font-28);
+                border-radius: 0;
                 background-color: var(--vh-white-color);
                 // 覆盖全局滚动条隐藏样式
                 scrollbar-width: auto;
                 -ms-overflow-style: auto;
 
-                // 滚动条样式 - 确保始终可见
+                // 像素风格滚动条
                 &::-webkit-scrollbar {
                   display: block;
-                  width: 6px;
+                  width: 8px;
                 }
 
                 &::-webkit-scrollbar-track {
                   background: var(--vh-font-6);
-                  border-radius: 3px;
+                  border: 1px solid var(--vh-font-28);
+                  border-radius: 0;
                 }
 
                 &::-webkit-scrollbar-thumb {
-                  background: var(--vh-font-56);
-                  border-radius: 3px;
+                  background: var(--vh-main-color);
+                  border: 1px solid #000;
+                  border-radius: 0;
 
                   &:hover {
                     background: var(--vh-font-color);

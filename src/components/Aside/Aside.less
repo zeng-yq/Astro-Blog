@@ -31,16 +31,22 @@ aside.vh-aside {
     width: 100%;
     max-width: 100%;
     height: max-content;
-    border-radius: var(--vh-main-radius);
+    // 像素风格边框和阴影
+    border: var(--vh-pixel-border-width) solid var(--vh-pixel-border-color);
+    border-radius: 0;
     background-color: var(--vh-white-color);
-    box-shadow: var(--vh-box-shadow);
+    box-shadow: var(--vh-pixel-box-shadow);
     overflow: hidden;
 
     &>h3 {
       width: 100%;
-      font-size: 0.68rem;
+      font-size: 0.7rem;
+      font-family: var(--vh-pixel-font-title);
       font-weight: 400;
       color: var(--vh-font-56);
+      border-bottom: 2px solid var(--vh-main-color);
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.3rem;
     }
 
     // 用户信息
@@ -51,32 +57,27 @@ aside.vh-aside {
         position: relative;
         width: 6.36rem;
         height: 6.36rem;
-        border-radius: 1rem;
+        border: 2px solid var(--vh-pixel-border-color);
+        border-radius: 0;
         overflow: hidden;
       }
 
       &>.vh-aside-auther {
         position: relative;
-        font-size: 1.25rem;
+        font-size: 1.1rem;
+        font-family: var(--vh-pixel-font-title);
+        line-height: 1.4;
 
         &::after {
-          content: '';
-          position: absolute;
-          display: block;
-          bottom: -0.16rem;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 36%;
-          height: 0.26rem;
-          border-radius: 3px;
-          background-color: var(--vh-main-color-88);
+          display: none;
         }
       }
 
       &>.vh-aside-motto {
-        font-size: 0.86rem;
+        font-size: 0.9rem;
+        font-family: var(--vh-pixel-font-body);
         color: var(--vh-font-66);
-        line-height: 1.5;
+        line-height: 1.4;
         text-align: center;
       }
 
@@ -92,15 +93,19 @@ aside.vh-aside {
           justify-content: center;
           width: 1.88rem;
           height: 1.88rem;
-          border: solid 1px #333;
+          border: 2px solid var(--vh-pixel-border-color);
           background-color: var(--vh-white-color);
-          border-radius: 0.38rem;
+          border-radius: 0;
           overflow: hidden;
           z-index: 1;
+          box-shadow: var(--vh-pixel-box-shadow-sm);
+          transition: all 0.18s ease-in-out;
 
           &:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: var(--vh-pixel-box-shadow);
             color: var(--vh-white-color);
-            border-color: var(--vh-white-color);
+            border-color: var(--vh-main-color);
 
             &::after {
               height: 100%;
@@ -145,22 +150,27 @@ aside.vh-aside {
           gap: 0.28rem;
           text-align: center;
           background: var(--vh-white-color);
-          border-radius: var(--vh-main-radius);
+          border: 2px solid var(--vh-font-16);
+          border-radius: 0;
+          box-shadow: var(--vh-pixel-box-shadow-sm);
           user-select: none;
-          transition: box-shadow 0.18s ease-in-out;
+          transition: all 0.18s ease-in-out;
 
           &:hover {
-            box-shadow: var(--vh-box-shadow);
+            box-shadow: var(--vh-pixel-box-shadow);
+            transform: translate(-1px, -1px);
             z-index: 1;
           }
 
           &>span {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
+            font-family: var(--vh-pixel-font-title);
             color: var(--vh-font-color);
           }
 
           &>p {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+            font-family: var(--vh-pixel-font-body);
             color: var(--vh-font-56);
           }
         }
@@ -187,7 +197,8 @@ aside.vh-aside {
         align-items: center;
         justify-content: flex-start;
         gap: 0.288rem;
-        font-size: 1rem;
+        font-size: 0.9rem;
+        font-family: var(--vh-pixel-font-title);
 
         &>svg {
           margin-bottom: 0.188rem;
@@ -200,7 +211,9 @@ aside.vh-aside {
       }
 
       &>.tips-content {
-        font-size: 0.88rem;
+        font-size: 0.85rem;
+        font-family: var(--vh-pixel-font-body);
+        line-height: 1.4;
 
         p {
           padding: 0.28rem 0;
@@ -226,24 +239,30 @@ aside.vh-aside {
         &>a {
           flex-shrink: 0;
           box-sizing: border-box;
+          padding: 0 0.5rem;
           display: flex;
           align-items: center;
           justify-content: space-between;
           width: 100%;
           height: 2.18rem;
-          font-size: 0.88rem;
-          border-radius: 0.38rem;
+          font-size: 0.8rem;
+          font-family: var(--vh-pixel-font-body);
+          border: 2px solid transparent;
+          border-radius: 0;
           background-color: var(--vh-white-color);
           transition: all 0.18s ease-in-out;
           overflow: hidden;
 
           &:hover {
             padding-left: 0.66rem;
-            background-color: var(--vh-main-color-66);
+            border-color: var(--vh-main-color);
+            background-color: var(--vh-main-color);
             color: var(--vh-white-color);
+            box-shadow: var(--vh-pixel-box-shadow-sm);
 
             &>i {
-              background-color: transparent;
+              background-color: #fff;
+              color: var(--vh-main-color);
             }
           }
 
@@ -255,9 +274,11 @@ aside.vh-aside {
             height: 1.28rem;
             color: var(--vh-white-color);
             font-size: 0.66rem;
+            font-family: var(--vh-pixel-font-title);
             font-style: normal;
-            border-radius: 0.38rem;
-            background-color: var(--vh-main-color-66);
+            border-radius: 0;
+            background-color: var(--vh-main-color);
+            border: 2px solid #000;
             transition: background 0.18s ease-in-out;
             overflow: hidden;
           }
@@ -293,16 +314,17 @@ aside.vh-aside {
           &>span {
             box-sizing: border-box;
             width: max-content;
-            font-size: 0.8rem;
-            line-height: 1.5;
+            font-size: 0.85rem;
+            font-family: var(--vh-pixel-font-body);
+            line-height: 1.4;
             transition: color 0.18s ease-in-out;
             overflow: hidden;
           }
 
           &>em {
-            // display: none;
             color: var(--vh-font-28);
-            font-size: 0.688rem;
+            font-size: 0.7rem;
+            font-family: var(--vh-pixel-font-title);
             font-style: normal;
           }
         }
@@ -316,7 +338,8 @@ aside.vh-aside {
         display: flex;
         width: 100%;
         height: max-content;
-        border-radius: var(--vh-main-radius);
+        border-radius: 0;
+        border: var(--vh-pixel-border-width) solid var(--vh-pixel-border-color);
         overflow: hidden;
 
         &>img {
@@ -383,9 +406,10 @@ aside.vh-aside {
             &>cite {
               width: max-content;
               max-width: 100%;
-              border-bottom: 1px solid transparent;
+              border-bottom: 2px solid transparent;
               font-size: 0.8rem;
-              line-height: 1.5;
+              font-family: var(--vh-pixel-font-body);
+              line-height: 1.4;
               font-style: normal;
               transition: color 0.288s ease-in-out;
 
@@ -393,7 +417,7 @@ aside.vh-aside {
                 content: '';
                 display: block;
                 width: 0;
-                height: 1px;
+                height: 2px;
                 background-color: var(--vh-main-color);
                 transition: width 0.58s cubic-bezier(.6, .1, 0, 1);
               }
@@ -403,10 +427,12 @@ aside.vh-aside {
               flex-shrink: 0;
               width: 0.875rem;
               height: 0.875rem;
-              border-radius: 0.18rem;
+              border: 2px solid #000;
+              border-radius: 0;
               color: var(--vh-white-color);
               text-align: center;
-              font-size: 0.66rem;
+              font-size: 0.6rem;
+              font-family: var(--vh-pixel-font-title);
               font-style: normal;
               background-color: var(--vh-success);
             }
@@ -415,14 +441,16 @@ aside.vh-aside {
               flex-shrink: 0;
               width: max-content;
               font-style: normal;
-              font-size: 0.8125rem;
+              font-size: 0.75rem;
+              font-family: var(--vh-pixel-font-body);
               color: var(--vh-font-66);
             }
           }
 
           &>time {
             color: var(--vh-font-56);
-            font-size: 0.688rem;
+            font-size: 0.7rem;
+            font-family: var(--vh-pixel-font-body);
           }
 
         }

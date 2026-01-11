@@ -44,9 +44,22 @@ export default {
     // 侧边栏宽度
     "--vh-aside-width": "318px",
     // 全局圆角
-    "--vh-main-radius": "0.88rem",
+    "--vh-main-radius": "0px",
     // 主体内容宽度
     "--vh-main-max-width": "1458px",
+
+    // === 像素风格变量 ===
+    // 像素边框
+    "--vh-pixel-border-width": "3px",
+    "--vh-pixel-border-color": "#000000",
+    "--vh-pixel-border-thick": "4px",
+    // 硬阴影（代替模糊阴影）
+    "--vh-pixel-box-shadow": "4px 4px 0px #000",
+    "--vh-pixel-box-shadow-sm": "2px 2px 0px #000",
+    "--vh-pixel-box-shadow-lg": "6px 6px 0px #000",
+    // 像素字体
+    "--vh-pixel-font-title": "'Press Start 2P', cursive",
+    "--vh-pixel-font-body": "'VT323', monospace",
   },
   // 导航栏 (新窗口打开 newWindow: true)
   Navs: [
